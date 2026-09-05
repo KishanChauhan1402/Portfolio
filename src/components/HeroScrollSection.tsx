@@ -47,43 +47,7 @@ export const HeroScrollSection: React.FC = () => {
       ref={containerRef}
       className="relative h-[260vh] md:h-[280vh] w-full bg-[var(--bg-main,#06070e)] select-none"
     >
-      <svg className="absolute h-0 w-0 overflow-hidden pointer-events-none" aria-hidden="true" focusable="false">
-        <filter id="hero-liquid-filter-phrase" x="-20%" y="-20%" width="140%" height="140%" colorInterpolationFilters="sRGB">
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.016 0.036"
-            numOctaves="2"
-            seed="7"
-            result="noise"
-          />
-          <feDisplacementMap
-            id="disp-map-phrase"
-            in="SourceGraphic"
-            in2="noise"
-            scale="0"
-            xChannelSelector="R"
-            yChannelSelector="G"
-          />
-        </filter>
 
-        <filter id="hero-liquid-filter-name" x="-20%" y="-20%" width="140%" height="140%" colorInterpolationFilters="sRGB">
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.014 0.032"
-            numOctaves="2"
-            seed="14"
-            result="noise"
-          />
-          <feDisplacementMap
-            id="disp-map-name"
-            in="SourceGraphic"
-            in2="noise"
-            scale="0"
-            xChannelSelector="R"
-            yChannelSelector="G"
-          />
-        </filter>
-      </svg>
       {/* Sticky Fullscreen Stage */}
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
         {/* Background Grain & Deep Vignette */}
@@ -102,8 +66,6 @@ export const HeroScrollSection: React.FC = () => {
           className="absolute inset-0 flex flex-col items-center justify-center text-center px-4"
         >
           <HeroLiquidText
-            filterId="hero-liquid-filter-phrase"
-            dispMapId="disp-map-phrase"
             className="font-display font-black text-4xl sm:text-6xl md:text-7xl lg:text-[6.5vw] tracking-tighter uppercase text-[#f4f0ea] flex flex-col gap-1 sm:gap-2 leading-none drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]"
             lines={[
               { text: 'I TURN' },
@@ -124,8 +86,6 @@ export const HeroScrollSection: React.FC = () => {
           className="absolute inset-0 z-30 flex flex-col items-center justify-center text-center px-4"
         >
           <HeroLiquidText
-            filterId="hero-liquid-filter-name"
-            dispMapId="disp-map-name"
             className="font-display font-black text-5xl sm:text-7xl md:text-8xl lg:text-[10vw] tracking-tighter uppercase text-[#f4f0ea] flex flex-col gap-1 sm:gap-2 leading-none"
             lines={[
               { text: 'KISHAN', className: 'text-white drop-shadow-[0_20px_50px_rgba(0,0,0,0.95)]' },
