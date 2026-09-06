@@ -19,7 +19,7 @@ export const ProjectsSection: React.FC = () => {
           <div>
             <div className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-widest text-neutral-400 mb-3">
               <span className="text-[var(--primary-accent,#9333ea)] font-bold">02</span>
-              <span>— SELECTED WORK</span>
+              <span> RECENT PROJECTES</span>
             </div>
             <h2 className="font-display text-6xl sm:text-7xl md:text-9xl font-bold tracking-tight uppercase text-[#f4f0ea]">
               SELECTED <br />
@@ -73,7 +73,7 @@ export const ProjectsSection: React.FC = () => {
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover object-center filter contrast-[1.05] brightness-[0.95] group-hover:scale-[1.03] group-hover:contrast-[1.12] transition-transform duration-700 ease-out"
                   />
-                  
+
                   {/* Subtle Ambient Overlay on Hover */}
                   <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-main,#06070e)] via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity duration-500" />
                   <div className="absolute inset-0 bg-[var(--primary-accent,#9333ea)]/0 group-hover:bg-[var(--primary-accent,#9333ea)]/10 transition-colors duration-500 mix-blend-color-dodge" />

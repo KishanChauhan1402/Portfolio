@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { ArrowDownRight } from 'lucide-react';
+import { ArrowDownRight, ArrowUpRight } from 'lucide-react';
 
 export const IntroductionSection: React.FC = () => {
   const [currentTime, setCurrentTime] = useState('');
@@ -31,10 +31,10 @@ export const IntroductionSection: React.FC = () => {
         <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-widest text-neutral-400 mb-12 sm:mb-16 border-b border-white/[0.08] pb-4">
           <div className="flex items-center gap-3">
             <span className="text-[var(--primary-accent,#9333ea)] font-bold">01</span>
-            <span className="text-white/80">— INTRODUCTION</span>
+            <span className="text-white/80">About me</span>
           </div>
           <div className="flex items-center gap-4 text-neutral-400">
-            <span className="hidden sm:inline">NEW DELHI, INDIA</span>
+            <span className="hidden sm:inline">AHMEDABAD, GUJARAT</span>
             <span className="inline-flex items-center gap-1.5 text-neutral-300">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
               <span>{currentTime || '06:15 PM IST'}</span>
@@ -51,18 +51,18 @@ export const IntroductionSection: React.FC = () => {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="font-headline font-bold text-3xl sm:text-4xl md:text-6xl lg:text-7xl leading-[1.12] tracking-tight text-[#f4f0ea] max-w-5xl"
           >
-            I turn ideas into <span className="text-white underline decoration-[var(--primary-accent,#9333ea)] decoration-2 underline-offset-8">clear</span>, <span className="text-white">useful</span> and <span className="text-[var(--primary-accent,#9333ea)]">visually expressive</span> digital experiences.
+            "The best experiences are <span className="text-white underline decoration-[var(--primary-accent,#9333ea)] decoration-2 underline-offset-8">felt</span>, <span className="text-white">before</span> they <span className="text-[var(--primary-accent,#9333ea)]">are understood.</span>"
           </motion.h2>
 
           {/* Editorial Grid: Paragraph + Designer Core Traits */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 pt-6 sm:pt-8 border-t border-white/[0.06]">
             <div className="md:col-span-4 font-mono text-xs uppercase tracking-widest text-neutral-400 space-y-3">
               <div className="text-white font-medium flex items-center gap-2">
-                <ArrowDownRight className="w-3.5 h-3.5 text-[var(--primary-accent,#0055ff)]" />
-                <span>DESIGN PARADIGM</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-[var(--primary-accent,#0055ff)]" />
+                <span>DESIGN PHILOSOPHY</span>
               </div>
               <p className="text-neutral-400 normal-case leading-relaxed font-sans text-sm">
-                Bridging rigorous product thinking with high-craft aesthetic expression. No templates, no generic SaaS defaults.
+                Designed from first principles, not borrowed from patterns. Strong product thinking meets considered visual craft to create experiences with clarity, character, and purpose.
               </p>
             </div>
 

@@ -40,11 +40,10 @@ export const Navigation: React.FC<NavigationProps> = ({ activeSection }) => {
     <>
       <header
         id="main-navigation"
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? 'bg-[var(--bg-main,#06070e)]/85 backdrop-blur-md border-b border-white/[0.06] py-3.5'
-            : 'bg-transparent py-5 md:py-6'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+          ? 'bg-[var(--bg-main,#06070e)]/85 backdrop-blur-md border-b border-white/[0.06] py-3.5'
+          : 'bg-transparent py-5 md:py-6'
+          }`}
       >
         <div className="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between">
           {/* Brand / Name */}
@@ -53,9 +52,6 @@ export const Navigation: React.FC<NavigationProps> = ({ activeSection }) => {
             onClick={(e) => handleScrollTo(e, '#hero')}
             className="group flex items-center gap-3 text-xs tracking-widest text-[#f4f0ea] uppercase font-mono font-medium transition-colors"
           >
-            <span className="inline-flex items-center justify-center w-6 h-6 rounded border border-white/20 text-[#f4f0ea] group-hover:border-[var(--primary-accent,#9333ea)] group-hover:bg-[var(--primary-accent,#9333ea)]/10 group-hover:text-[var(--primary-accent,#9333ea)] transition-all">
-              K
-            </span>
             <span className="sm:inline opacity-70 group-hover:opacity-100 transition-opacity">
               Kishan Chauhan
             </span>
@@ -70,11 +66,10 @@ export const Navigation: React.FC<NavigationProps> = ({ activeSection }) => {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => handleScrollTo(e, link.href)}
-                  className={`relative font-mono text-[11px] uppercase tracking-widest transition-all duration-200 ${
-                    isActive
-                      ? 'text-[var(--primary-accent,#9333ea)] font-semibold'
-                      : 'text-neutral-400 hover:text-[#f4f0ea]'
-                  }`}
+                  className={`relative font-mono text-[11px] uppercase tracking-widest transition-all duration-200 ${isActive
+                    ? 'text-[var(--primary-accent,#9333ea)] font-semibold'
+                    : 'text-neutral-400 hover:text-[#f4f0ea]'
+                    }`}
                 >
                   {link.label}
                   {isActive && (

@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'motion/react';
-import { Compass } from 'lucide-react';
+import { Compass, Paintbrush } from 'lucide-react';
 import { HeroLiquidText } from './HeroLiquidText';
 
 export const HeroScrollSection: React.FC = () => {
@@ -96,9 +96,11 @@ export const HeroScrollSection: React.FC = () => {
           <div className="mt-5 md:mt-8 font-mono text-[11px] sm:text-xs md:text-sm tracking-[0.25em] uppercase text-neutral-400 flex flex-wrap items-center justify-center gap-2 sm:gap-3 max-w-xl">
             <span>UI/UX DESIGNER</span>
             <span className="text-[var(--primary-accent,#9333ea)]">•</span>
-            <span>PRODUCT DESIGNER</span>
+            <span>GRAPHIC DESIGNER</span>
             <span className="text-[var(--primary-accent,#9333ea)]">•</span>
-            <span>CREATIVE DEVELOPER</span>
+            <span>AI POWERED CREATIVE</span>
+            <span className="text-[var(--primary-accent,#9333ea)]">•</span>
+            <span>PERFORMANCE MARKETER</span>
           </div>
         </motion.div>
 
@@ -108,11 +110,11 @@ export const HeroScrollSection: React.FC = () => {
           className="absolute top-24 left-6 sm:left-12 z-30 font-mono text-[10px] sm:text-xs uppercase tracking-widest text-neutral-400 max-w-[240px] leading-relaxed hidden sm:block"
         >
           <div className="flex items-center gap-2 text-white font-semibold mb-1">
-            <Compass className="w-3.5 h-3.5 text-[var(--primary-accent,#9333ea)]" />
-            <span>KISHAN CHAUHAN</span>
+            {/* <Paintbrush className="w-3.5 h-3.5 text-[var(--primary-accent,#9333ea)]" /> */}
+            <span>I CREATE</span>
           </div>
           <p className="text-neutral-400">
-            Digital Craft, Editorial Interfaces & Product Design
+            Brand and digital product that feels alive and intelligent.
           </p>
         </motion.div>
 
@@ -120,8 +122,8 @@ export const HeroScrollSection: React.FC = () => {
           style={{ opacity: metaOpacity, y: metaY }}
           className="absolute top-24 right-6 sm:right-12 z-30 font-mono text-[10px] sm:text-xs uppercase tracking-widest text-neutral-400 text-right hidden sm:block"
         >
-          <div className="text-neutral-300">2026 PORTFOLIO</div>
-          <div className="text-[var(--primary-accent,#9333ea)] font-semibold">VOLUME 04 / ARCHIVE</div>
+          <div className="text-neutral-300">PORTFOLIO</div>
+          <div className="text-[var(--primary-accent,#9333ea)] font-semibold">2k26-27</div>
         </motion.div>
 
         {/* Bottom Hero Indicators: Sub-roles & Scroll Prompt */}
@@ -130,11 +132,11 @@ export const HeroScrollSection: React.FC = () => {
           className="absolute bottom-8 sm:bottom-12 inset-x-6 sm:inset-x-12 z-30 flex items-end justify-between pointer-events-none"
         >
           <div className="font-mono text-[10px] sm:text-xs tracking-widest text-neutral-400 uppercase space-y-1">
-            <div className="text-neutral-200">DIGITAL PRODUCT DESIGN</div>
-            <div className="text-neutral-500">INTERACTION & SPATIAL SYSTEMS</div>
+            <div className="text-neutral-200">UX PRODUCT DESIGNER</div>
+            <div className="text-neutral-500">PRODUCT DESIGN & DESIGN SYSTEMS</div>
           </div>
 
-          <div className="flex flex-col items-center gap-2 font-mono text-[10px] sm:text-xs tracking-widest uppercase text-neutral-400">
+          <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 font-mono text-[10px] sm:text-xs tracking-widest uppercase text-neutral-400">
             <span className="text-[var(--primary-accent,#9333ea)] animate-pulse">SCROLL TO EXPLORE</span>
             <div className="w-5 h-8 rounded-full border border-white/20 flex items-start justify-center p-1">
               <motion.div
@@ -146,8 +148,8 @@ export const HeroScrollSection: React.FC = () => {
           </div>
 
           <div className="hidden sm:block font-mono text-[10px] sm:text-xs tracking-widest text-neutral-400 text-right uppercase">
-            <div>28°36' N, 77°12' E</div>
-            <div className="text-neutral-500">NEW DELHI, IN</div>
+            <div>ANAND</div>
+            <div className="text-neutral-500">GUJARAT, IN</div>
           </div>
         </motion.div>
       </div>
