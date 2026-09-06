@@ -162,6 +162,8 @@ export const HeroLiquidText: React.FC<HeroLiquidTextProps> = ({
   const textDivRef   = useRef<HTMLDivElement>(null);
   const canvasRef    = useRef<HTMLCanvasElement>(null);
   const lineRefs     = useRef<(HTMLDivElement | null)[]>([]);
+  const linesRef     = useRef(lines);
+  linesRef.current   = lines;
 
   useEffect(() => {
     // Respect user's motion preference — show static text only
@@ -254,22 +256,37 @@ export const HeroLiquidText: React.FC<HeroLiquidTextProps> = ({
       const ctx  = off.getContext('2d')!;
       ctx.clearRect(0, 0, texW, texH);
 
+      const containerFilter = window.getComputedStyle(textDiv).filter;
+
       lineRefs.current.forEach((lineEl, i) => {
-        if (!lineEl) return;
+        if (!lineEl || !linesRef.current[i]) return;
         const span = lineEl.querySelector('span') as HTMLElement | null;
         if (!span) return;
 
-        const style    = window.getComputedStyle(span);
-        const spanRect = span.getBoundingClientRect();
+        const style     = window.getComputedStyle(span);
+        const lineStyle = window.getComputedStyle(lineEl);
+        const spanRect  = span.getBoundingClientRect();
 
         // Map rendered position → intrinsic canvas position
         const x = (spanRect.left - cRect.left) * sx;
-        const y = (spanRect.top  - cRect.top)  * sy;
+        // Align vertically with middle baseline so line-height differences don't shift text
+        const y = (spanRect.top + spanRect.height / 2 - cRect.top) * sy;
 
         ctx.save();
         ctx.font         = `${style.fontWeight} ${style.fontSize} ${style.fontFamily}`;
         ctx.fillStyle    = style.color;
-        ctx.textBaseline = 'top';
+        ctx.textAlign    = 'left';
+        ctx.textBaseline = 'middle';
+
+        // Match drop-shadow filter if present on span, line, or container
+        const activeFilter = (style.filter && style.filter !== 'none')
+          ? style.filter
+          : ((lineStyle.filter && lineStyle.filter !== 'none')
+            ? lineStyle.filter
+            : (containerFilter && containerFilter !== 'none' ? containerFilter : 'none'));
+        if (activeFilter !== 'none') {
+          ctx.filter = activeFilter;
+        }
 
         // Letter-spacing: supported in Chrome ≥99, Firefox ≥116, Safari ≥17
         if ('letterSpacing' in ctx) {
@@ -277,7 +294,7 @@ export const HeroLiquidText: React.FC<HeroLiquidTextProps> = ({
             style.letterSpacing;
         }
 
-        ctx.fillText(lines[i].text, x, y);
+        ctx.fillText(linesRef.current[i].text, x, y);
         ctx.restore();
       });
 
@@ -377,6 +394,9 @@ export const HeroLiquidText: React.FC<HeroLiquidTextProps> = ({
       if (isNear) return;
       isNear = true;
       clearTimers();
+
+      // Rebuild texture on enter so scale/layout/fonts are 100% up to date
+      buildTexture();
 
       // Instantly show canvas; smoothly hide DOM text
       canvas.style.transition  = 'opacity 0.18s ease';
@@ -505,7 +525,7 @@ export const HeroLiquidText: React.FC<HeroLiquidTextProps> = ({
             ref={el => { lineRefs.current[i] = el; }}
             className={line.className}
           >
-            <span className="inline-block">{line.text}</span>
+            <span className="inline-block whitespace-nowrap">{line.text}</span>
           </div>
         ))}
       </div>
