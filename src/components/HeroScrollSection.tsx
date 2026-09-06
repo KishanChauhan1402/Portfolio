@@ -70,7 +70,8 @@ export const HeroScrollSection: React.FC = () => {
             lines={[
               { text: 'I TURN' },
               { text: 'COMPLEX IDEAS', className: 'text-neutral-300' },
-              { text: 'INTO DIGITAL EXPERIENCES.', className: 'text-[var(--primary-accent,#9333ea)]' },
+              { text: 'INTO DIGITAL', className: 'text-[var(--primary-accent,#9333ea)]' },
+              { text: 'EXPERIENCES.', className: 'text-[var(--primary-accent,#9333ea)]' },
             ]}
           />
         </motion.div>
