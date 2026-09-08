@@ -62,7 +62,7 @@ export const ContactSection: React.FC = () => {
                 <a
                   href={`mailto:${emailAddress}`}
                   data-cursor="SAY HI"
-                  className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white hover:text-[var(--primary-accent,#0055ff)] transition-colors"
+                  className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white hover:text-[var(--primary-accent,#0055ff)] transition-colors"
                 >
                   {emailAddress}
                 </a>
